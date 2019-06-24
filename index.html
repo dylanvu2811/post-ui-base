@@ -127,9 +127,8 @@
     <section class="posts-section">
       <div class="container">
         <h1 class="with-underline text-center">Latest posts</h1>
-
-        <!-- Posts list -->
-        <ul id="postsList" class="row posts-list justify-content-center">
+        <!-- ITEM POST TEMPLATE -->
+        <template id="itemPost">
           <li class="col-12 col-md-6 col-lg-4">
             <div class="post-item mb-4">
               <div class="card">
@@ -158,6 +157,10 @@
               </div>
             </div>
           </li>
+        </template>
+        <!-- Posts list -->
+        <ul id="postsList" class="row posts-list justify-content-center">
+
         </ul>
 
         <!-- Posts pagination -->
