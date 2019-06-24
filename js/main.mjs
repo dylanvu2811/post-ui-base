@@ -39,6 +39,13 @@ const buildPostItem = (post) => {
     timeItem.innerText = timeString;
   }
 
+  // add event click view detail
+  const postItemElement = postItemFragment.querySelector('.post-item');
+  postItemElement.addEventListener('click',() => {
+    const postURL = `post-detail.html?postId=${post.id}`;
+    window.location = postURL;
+  });
+
   return postItem;
 };
 
