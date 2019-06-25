@@ -2,6 +2,17 @@
 import postApi from './api/postApi.js';
 import utils from "./utils.js";
 
+const handleClickRemoveItem = async (post) => {
+    const confirmMessage = `Do you want remove post ${post.title}`;
+    if (window.confirm(confirmMessage)) {
+      await postApi.remove(post.id);
+      // console.log('test');
+
+      // reload page
+      window.location.reload();
+    }
+}
+
 // create a element
 const buildPostItem = (post) => {
   const postItemTemplate = document.querySelector('#postItemTemplate');
@@ -44,6 +55,12 @@ const buildPostItem = (post) => {
   postItemElement.addEventListener('click',() => {
     const postURL = `post-detail.html?postId=${post.id}`;
     window.location = postURL;
+  });
+
+  const iconRemove = postItemFragment.querySelector('#postItemRemove');
+  iconRemove.addEventListener('click',(e) => {
+    handleClickRemoveItem(post);
+    e.stopPropagation();
   });
 
   return postItem;
