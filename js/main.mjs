@@ -57,9 +57,18 @@ const buildPostItem = (post) => {
     window.location = postURL;
   });
 
+  // add event remove
   const iconRemove = postItemFragment.querySelector('#postItemRemove');
   iconRemove.addEventListener('click',(e) => {
     handleClickRemoveItem(post);
+    e.stopPropagation();
+  });
+
+  // add event click edit item
+  const iconEdit = postItemFragment.querySelector('#postItemEdit');
+  iconEdit.addEventListener('click', (e) => {
+    const editURL = `add-edit-post.html?postId=${post.id}`;
+    window.location = editURL;
     e.stopPropagation();
   });
 
