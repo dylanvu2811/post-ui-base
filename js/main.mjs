@@ -4,36 +4,36 @@ import utils from "./utils.js";
 
 // create a element
 const buildPostItem = (post) => {
-  const postItemTemplate = document.querySelector('#itemPost');
+  const postItemTemplate = document.querySelector('#postItemTemplate');
   const postItemFragment = postItemTemplate.content.cloneNode(true);
   const postItem = postItemFragment.querySelector('li');
 
   // set images
-  const imagesItem = postItemFragment.querySelector('.card img');
+  const imagesItem = postItemFragment.querySelector('#postItemImage');
   if (imagesItem) {
     imagesItem.src = post.imageUrl;
   }
 
   // set title
-  const titleItem = postItemFragment.querySelector('h5.card-title');
+  const titleItem = postItemFragment.querySelector('#postItemTitle');
   if (titleItem) {
     titleItem.innerText = post.title;
   }
 
   // set desc
-  const descItem = postItemFragment.querySelector('.card-text');
+  const descItem = postItemFragment.querySelector('#postItemDescription');
   if (descItem) {
     descItem.innerText = utils.truncateTextlength(post.description, 110);
   }
 
   // set author
-  const authorItem = postItemFragment.querySelector('small:nth-child(2)');
+  const authorItem = postItemFragment.querySelector('#postItemAuthor');
   if (authorItem) {
     authorItem.innerText = post.author;
   }
 
   // set date
-  const timeItem = postItemFragment.querySelector('small:nth-child(3)');
+  const timeItem = postItemFragment.querySelector('#postItemTimeSpan');
   if (timeItem) {
     const timeString = ` - ${utils.formatDate(post.updatedAt)}`;
     timeItem.innerText = timeString;
