@@ -15,7 +15,19 @@ const setValuesPost = (postInfo) => {
 
     // set img
     utils.setBackgroundImageByElementId('postHeroImage', postInfo.imageUrl);
-} 
+}
+
+const handleChangeImg = () => {
+    // random id img
+    const randomIdImg = Math.floor(Math.random() * 101);
+
+    // new img url
+    const imgURL = `https://picsum.photos/id/${randomIdImg}/1368/400`;
+
+    // update background img
+    utils.setBackgroundImageByElementId('postHeroImage', imgURL);
+   
+}
 // -----------------------
 // MAIN LOGIC
 // -----------------------
@@ -27,6 +39,12 @@ const init = async () => {
     const postId = params.get('postId');
     const postInfo = await postApi.getDetail(postId);
     setValuesPost(postInfo);
+
+    // add event click change img post
+    const btnChangeImg = document.querySelector('#postChangeImage');
+    if(btnChangeImg){
+        btnChangeImg.addEventListener('click', handleChangeImg);
+    }
     //  console.log(postInfo);
 };
 
