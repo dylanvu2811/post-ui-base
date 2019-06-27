@@ -28,6 +28,17 @@ const handleChangeImg = () => {
     utils.setBackgroundImageByElementId('postHeroImage', imgURL);
    
 }
+const handleFormEditSubmit = (postId) => {
+    console.log('submit');
+}
+
+const editViewDetail = (postId) => {
+    const viewDetail = document.querySelector('#goToDetailPageLink');
+    if(viewDetail) {
+        viewDetail.href = `post-detail.html?postId=${postId}`;
+        viewDetail.innerHTML = '<i class="fas fa-eye"></i> View Post';
+    }
+}
 // -----------------------
 // MAIN LOGIC
 // -----------------------
@@ -37,15 +48,30 @@ const init = async () => {
 
     const params = new URLSearchParams(window.location.search);
     const postId = params.get('postId');
-    const postInfo = await postApi.getDetail(postId);
-    setValuesPost(postInfo);
+    const thisIsPage = !!postId;
+    if(thisIsPage) {
+        const postInfo = await postApi.getDetail(postId);
+        setValuesPost(postInfo);
 
-    // add event click change img post
-    const btnChangeImg = document.querySelector('#postChangeImage');
-    if(btnChangeImg){
-        btnChangeImg.addEventListener('click', handleChangeImg);
+        // add event click change img post
+        const btnChangeImg = document.querySelector('#postChangeImage');
+        if(btnChangeImg){
+            btnChangeImg.addEventListener('click', handleChangeImg);
+        }
+        // add event submit form edit
+        const formEditSubmit = document.querySelector('#postForm');
+        if(formEditSubmit){
+            formEditSubmit.addEventListener('submit', (e) => {
+                handleFormEditSubmit(postId);
+            });
+        }
+
+        // handle view detail post
+        editViewDetail(postId);
+
+    }else{
+        console.log('page add');
     }
-    //  console.log(postInfo);
 };
 
 init();
