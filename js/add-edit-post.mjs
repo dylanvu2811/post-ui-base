@@ -1,6 +1,7 @@
 'use strict';
 import postApi from './api/postApi.js';
 import utils from "./utils.js";
+import AppConstants from './appConstants.js';
 
 // form validation
 const validateForm = () => {
@@ -10,10 +11,10 @@ const validateForm = () => {
     let isValid = true;
 
     // title & author is required
-    if (title == '') {
+    if (!title.value) {
         title.classList.add('is-invalid');
         isValid = false;
-    } else if (author == '') {
+    } else if (!author.value) {
         author.classList.add('is-invalid');
         isValid = false;
     }
@@ -39,7 +40,7 @@ const handleChangeImg = () => {
     const randomIdImg = Math.floor(Math.random() * 101);
 
     // new img url
-    const imgURL = `https://picsum.photos/id/${randomIdImg}/1368/400`;
+    const imgURL = `https://picsum.photos/id/${randomIdImg}/${AppConstants.DEFAULT_IMAGE_WIDTH}/${AppConstants.DEFAULT_IMAGE_HEIGHT}`;
 
     // update background img
     utils.setBackgroundImageByElementId('postHeroImage', imgURL);
@@ -132,7 +133,7 @@ const init = async () => {
         editViewDetail(postId);
 
     } else {
-        utils.setBackgroundImageByElementId('postHeroImage', 'https://picsum.photos/1368/400');
+        utils.setBackgroundImageByElementId('postHeroImage', AppConstants.DEFAULT_HERO_IMAGE_URL);
         const formAddSubmit = document.querySelector('#postForm');;
 
         if(formAddSubmit) {
