@@ -101,11 +101,12 @@ const init = async () => {
 
   anime({
     targets: '#postsList li',
-    scale: [
-      {value: .1, easing: 'easeOutSine', duration: 500},
-      {value: 1, easing: 'easeInOutQuad', duration: 1200}
+    translateY: [
+      { value: 100, duration: 0 },
+      { value: 0, duration: 500 },
     ],
-    delay: anime.stagger(200, {grid: [14, 5], from: 'center'})
+    delay: anime.stagger(100),
+    easing: 'linear'
   });
 };
 
