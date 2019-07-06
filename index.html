@@ -91,21 +91,21 @@
 
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="https://picsum.photos/id/996/1368/400" alt="First slide">
+            <img class="d-block w-100" src="images/1.jpg" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
               <h5>Welcome to Nordic Coder</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolor nam repudiandae perspiciatis unde, reprehenderit culpa maxime laborum, deleniti error repellendus doloribus delectus hic, voluptate incidunt inventore velit accusantium!</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="https://picsum.photos/1368/400/?blur=4" alt="Second slide">
+            <img class="d-block w-100" src="images/2.jpg" alt="Second slide">
             <div class="carousel-caption d-none d-md-block">
               <h5>Beautifully Flexible</h5>
               <p>Looks beautiful & ultra-sharp on Retina Screen Displays. Powerful Layout with Responsive functionality that can be adapted to any screen size.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="https://picsum.photos/1368/400/?blur=6" alt="Third slide">
+            <img class="d-block w-100" src="images/3.jpg" alt="Third slide">
             <div class="carousel-caption d-none d-md-block">
               <h5>Great Performance</h5>
               <p>You'll be surprised to see the Final Results of your Creation & would crave for more.</p>
@@ -134,36 +134,32 @@
 
         <!-- Posts pagination -->
         <nav class="posts-nav" aria-label="Posts navigation">
-          <ul hidden id="postsPagination" class="pagination justify-content-center">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
+           <ul hidden id="postsPagination" class="pagination justify-content-center"></ul>
         </nav>
+        <div class="bg-loader">
+          <div class="loader">   
+            <img src="https://media.giphy.com/media/9VvlHYBpcRadeNDCCa/giphy.gif" width="120px">
+            <span>LOADING POSTS ...</span>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="text-center text-muted py-3">
-    <small>Created by Po with <i class="fas fa-heart"></i></small>
+    <small>Created by <a href="https://www.facebook.com/dylanvu2811">Dương Vũ</a> with <i class="fas fa-heart"></i></small>
   </footer>
 
-  <!-- Scripts should be placed here to prevent blocking render UI -->
-  <script type="module" src="js/main.mjs"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.7.0/qs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js"></script>
+
   <!-- Scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="libs/anime.js"></script>
+    <!-- Scripts should be placed here to prevent blocking render UI -->
+  <script type="module" src="js/main.mjs"></script>
 </body>
 
 </html>

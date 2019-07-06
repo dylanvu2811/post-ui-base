@@ -1,3 +1,5 @@
+import queryString from "./queryString.js";
+
 const request = async (url, option) => {
 
     try {
@@ -24,7 +26,12 @@ const request = async (url, option) => {
     }
 };
 
-const get = (url, params) => request(url, {method:'GET'});
+// const get = (url, params) => request(url, {method:'GET'});
+const get = async (url, params) => {
+    const paramString = params ? `?${queryString.stringify(params)}` : '';
+    const requestUrl = `${url}${paramString}`;
+    return request(requestUrl, { method: 'GET' });
+};
 
 const post = (url, body) => request(url, {body: JSON.stringify(body), method:'POST'});
 

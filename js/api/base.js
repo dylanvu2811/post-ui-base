@@ -2,10 +2,19 @@ import fetchClient from "./fetchClient.js";
 import AppConstants from "../appConstants.js";
 
 class Base {
-    getAll() {
+    // getAll() {
+    //     const url = `${AppConstants.API_URL}/${this.getResourceName()}`;
+    //     return fetchClient.get(url);
+    // }
+    getAll (params) {
         const url = `${AppConstants.API_URL}/${this.getResourceName()}`;
-        return fetchClient.get(url);
-
+        const defaultParams = { _page: AppConstants.DEFAULT_PAGE, _limit: AppConstants.DEFAULT_LIMIT};
+        if(params){    
+            return fetchClient.get(url,params);
+        }
+        else {
+            return fetchClient.get(url,defaultParams)
+        }
     }
 
     getDetail(id) {
